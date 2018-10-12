@@ -1,0 +1,36 @@
+//
+//  PrefixHeader.pch
+//  LFCustomDemo
+//
+//  Created by 扫仙科技 on 2018/10/12.
+//  Copyright © 2018年 扫仙科技. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#import "LFHeader.h"
+#define kScreenWidth [UIScreen mainScreen].bounds.size.width
+#define kScreenHeight [UIScreen mainScreen].bounds.size.height
+
+#define kMainColor  [UIColor colorWithRed:203/255.0 green:163/255.0 blue:91/255.0 alpha:1.f]
+//按照375的标注适配
+#define kScale kScreenWidth/375.0
+#define WS(weakSelf) __weak __typeof(&*self)weakSelf = self;
+#define LFColor(r, g, b ,alp) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:alp]
+#define LFFont(size) [UIFont systemFontOfSize:size]
+
+// 判断是否是iPhone X
+#define iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+// 状态栏高度
+#define STATUS_BAR_HEIGHT (iPhoneX ? 44.f : 20.f)
+// 导航栏高度
+#define NAVIGATION_BAR_HEIGHT (iPhoneX ? 88.f : 64.f)
+// tabBar高度
+#define TAB_BAR_HEIGHT (iPhoneX ? (49.f+34.f) : 49.f)
+// home indicator高度
+#define HOME_INDICATOR_HEIGHT (iPhoneX ? 34.f : 0.f)
+
+#endif /* PrefixHeader_pch */
